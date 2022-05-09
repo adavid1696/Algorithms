@@ -13,19 +13,26 @@ var twoSum = function(nums, target) {
     const hash = new Map()
 
 		for(let i = 0; i < nums.length; i++){
-			hash.set(nums[i], i); 
-		}
-		
-		console.log(hash)
+			let res = target - nums[i];
+			if(hash.has(nums[i])) return [hash.get(nums[i]), i]
 
-		for(let j = 0; j < nums.length; j++){
-			let res = target - nums[j] // 7
-			if(hash.has(res) && hash.get(res) !== j){ // true && 1
-				 return [j, hash.get(res)];
-			}
+			hash.set(res, i) // 3 0
 		}
+
+		// for(let i = 0; i < nums.length; i++){
+		// 	hash.set(nums[i], i); 
+		// }
+		
+		// console.log(hash)
+
+		// for(let j = 0; j < nums.length; j++){
+		// 	let res = target - nums[j] // 7
+		// 	if(hash.has(res) && hash.get(res) !== j){ // true && 1
+		// 		 return [j, hash.get(res)];
+		// 	}
+		// }
 		
 
 };
 
-console.log(twoSum([2,7,11,15], 9))
+console.log(twoSum([3,3], 6))
